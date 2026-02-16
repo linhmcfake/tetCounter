@@ -24,16 +24,22 @@ function getTetDate(year: number) {
       return new Date(year, tetDates[i + 1] - 1, tetDates[i + 2]);
     }
   }
-  return new Date(year, 1, 1);
+  return new Date(year, 0, 1); // Mặc định nếu không tìm thấy
 }
 
 export const getDaysToTet = () => {
   const now = new Date();
-  let tet = getTetDate(now.getFullYear());
+  // Đặt mốc thời gian về 0h sáng để tính số ngày chính xác hơn
+  const startOfToday = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+  
+  let tet = getTetDate(startOfToday.getFullYear());
 
-  if (now > tet) tet = getTetDate(now.getFullYear() + 1);
+  // Nếu hôm nay đã qua ngày Tết năm nay, tính cho năm sau
+  if (startOfToday > tet) {
+    tet = getTetDate(startOfToday.getFullYear() + 1);
+  }
 
-  const diff = tet.getTime() - now.getTime();
+  const diff = tet.getTime() - startOfToday.getTime();
   return Math.ceil(diff / (1000 * 60 * 60 * 24));
 };
 
@@ -43,7 +49,13 @@ export default {
 
     if (storage.lastShown !== today) {
       const days = getDaysToTet();
-      showToast(`Còn ${days} ngày nữa là Tết Âm Lịch! 🎉🎊🌸`);
+      
+      if (days === 0) {
+        showToast("Chúc Mừng Năm Mới Bính Ngọ 2026! 🎉🎊🌸");
+      } else {
+        showToast(`Còn ${days} ngày nữa là Tết Âm Lịch! 🧧✨`);
+      }
+      
       storage.lastShown = today;
     }
   },
