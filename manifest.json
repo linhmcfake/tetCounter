@@ -1,6 +1,14 @@
 {
-    "name": "TetCounter",
-    "description": "Đếm ngược tới Tết Âm Lịch (by linhmc_new)",
-    "authors": [{ "name": "linhmc_new" }],
-    "main": "plugin.js"
+  "name": "Tết Âm Lịch",
+  "description": "Đếm ngược tới Tết Âm Lịch",
+  "authors": [
+    {
+      "name": "linhmc_new",
+      "id": "000000000000000000"
+    }
+  ],
+  "main": "src/index.ts",
+  "vendetta": {
+    "icon": "ic_calendar_24px"
+  }
 }
