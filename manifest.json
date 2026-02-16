@@ -1,14 +1,7 @@
 {
   "name": "Tết Âm Lịch",
   "description": "Đếm ngược tới Tết Âm Lịch",
-  "authors": [
-    {
-      "name": "linhmc_new",
-      "id": "123456789012345678"
-    }
-  ],
+  "authors": [{ "name": "linhmc_new", "id": "123456789012345678" }],
   "main": "index.js",
-  "vendetta": {
-    "icon": "ic_calendar_24px"
-  }
+  "vendetta": { "icon": "ic_calendar_24px" }
 }
