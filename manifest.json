@@ -1,0 +1,6 @@
+{
+    "name": "TetCounter",
+    "description": "Đếm ngược tới Tết Âm Lịch (by linhmc_new)",
+    "authors": [{ "name": "linhmc_new" }],
+    "main": "plugin.js"
+}
